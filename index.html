@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smartphone Shop</title>
+  <style>
+    img {
+      width: 80px;
+    }
+    body {
+      background-color: #ebeded;
+    }
+  </style>
+</head>
+<body>
+<!--Complete exercises from 1 to 6 with just plain HTML:
+
+EX1: Add an h1 tag with the name of your shop
+
+EX2: Add a TABLE with the top 5 products of your shop
+
+EX3: Insert for each product an image, a title, a description and a price
+
+EX4: Add links to existing Amazon products for each item in the table
+
+EX5: Add a footer with the address and the name of your shop
+
+EX6: Add a message board where the user can type a message in it (no real posting/saving features required!)
+
+EX7: Write a function to change the h1 text to something else
+
+EX8: Write a function to change the page background color
+
+EX9: Write a function to change the footer address with a fake one
+
+EX10: Write a function to add a CSS class to every Amazon link
+
+EX11: Write a function to toggle a CSS class for all the images in the table; that class should set the visibility of the image
+
+EX12: Write a function to color the price of the products in a different way every time it’s invoked
+--> 
+  <h1>My Smartphone Shop</h1>
+  <input type="text" id="new-h1-input" placeholder="New title..." />
+  <button onclick="changeH1ToInputValue()">Change title</button>
+  <table>
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Amazon Link</th>
+    </tr>
+    <tr>
+       <td><img src="SamsungS22.jpg" alt="Samsung S23 Ulta"/>></td>
+       <td>Samsung S22 Ultra</td>
+       <td>The latest Samsung available</td>
+       <td>1429€</td>
+       <td><a href="https://www.amazon.de/Samsung-Android-Smartphone-Herstellergarantie-Exklusiv/dp/B09QH2F27Z/ref=sr_1_2?crid=3TPEGC82C4HMF&keywords=samsung+s23+ultra&qid=1670244606&sprefix=%2Caps%2C66&sr=8-2">Samsung S22 Ultra on Amazon</a></td>
+    </tr>
+    <tr>
+      <td><img src="Iphone14Pro.jpg" alt="Iphone 14 Pro"></td>
+      <td>Iphone 14 Pro Max</td>
+      <td>The latest Iphone available</td>
+      <td>1579€</td>
+      <td><a href="https://www.amazon.de/Apple-iPhone-Pro-Max-256/dp/B0BDJMH6JP/ref=sr_1_1_sspa?crid=2XZTL00L0QQMK&keywords=iphone+14+pro+max&qid=1670244818&sprefix=iphone+%2Caps%2C82&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1">Iphone 14 Pro Max on Amazon</a></td>
+    </tr>
+    <tr>
+      <td><img src="HuaweiP50.jpg" alt="Huawei Pro 50"></td>
+      <td>Huawei Pro 50</td>
+      <td>The latest Huawei available</td>
+      <td>869€</td>
+      <td><a href="https://www.amazon.de/HUAWEI-P50-Pro-True-Chroma-Aktualisierungsrate/dp/B09Q69QT5X/ref=sr_1_2?crid=9650FUA73T4J&keywords=huawei+p50+pro&qid=1670244942&sprefix=huawei%2Caps%2C97&sr=8-2">Huawei Pro 50 on Amazon</a></td>
+    </tr>
+    <tr>
+      <td><img src="RedmiNote11.jpg" alt="Remid Note 11"></td>
+      <td>Redmi Note 11 Pro </td>
+      <td>The latest Redmi available</td>
+      <td>270€</td>
+      <td><a href="https://www.amazon.de/Xiaomi-Smartphone-DotDisplay-Turboladung-Graphitgrau/dp/B09RZYRTF1/ref=sr_1_1?crid=2O3NUO89W3NCB&keywords=redmi%2Bnote%2B11%2Bpro&qid=1670245065&sprefix=redmi%2Caps%2C84&sr=8-1&th=1">Redmi Note 11 Pro on Amazon</a></td>
+    </tr>
+    <tr>
+      <td><img src="SonyXperia.jpg" alt="Sony Xperia 5"></td>
+      <td>Sony Xperia 5</td>
+      <td>The latest Sony available</td>
+      <td>999€</td>
+      <td><a href="https://www.amazon.de/Sony-Smartphone-OLED-Display-Dreifach-Kamera-5-mm-Audio/dp/B0BBS6ZHNH/ref=sr_1_1_sspa?crid=2QFV9RW7TSUEV&keywords=sony+xperia+5+ii&qid=1670245239&sprefix=sony%2Caps%2C83&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1">Sony Xperia 5 on Amazon</a></td>
+    </tr>
+  </table>
+  <footer>
+    <p>Message Board</p>
+    <input type="text">
+    <p>My Smartphone Shop's address:</p>
+    <div id="fake-Address">
+      <span>Main Street Nr. 1, Guangzhou, China</span>
+      <button onclick="changeFooterAddress()">Change address</button>
+    </div>
+  </footer>
+  <script>
+    function changeH1To(newTitle) {
+      let h1Node = document.querySelector('h1')
+      h1Node.innerText = newTitle
+    }
+    function changeH1ToInputValue() {
+      let h1Node = document.querySelector('h1')
+
+      let titleInputNode = document.getElementById('new-h1-input')
+      let newTitle = titleInputNode.value
+
+      h1Node.innerText = newTitle
+    }
+    function changeBackgroundColor(color){
+      document.body.style.background = color;
+        }
+    function changeFooterAddress() {
+      document.getElementById("fake-Address").innerHTML = "New fake address"
+            }
+    function addClass2Amazon(){
+      newClassNode.classList.add("new-class");
+      let newClassNode = document.querySelectorAll("a");   
+      }
+      function addToggleClass(){
+        let changeImgToggleNode = document.querySelectorAll("img")
+        changeImgToggleNode.style.toggle("visibility = hidden")  
+  
+      }
+  </script>
+</body>
+</html>
